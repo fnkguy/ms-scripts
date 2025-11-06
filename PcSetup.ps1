@@ -49,13 +49,15 @@ Add-Content -Path $ENV:USERPROFILE\Documents\PowerShell\profile.ps1 -Value "Set-
 
 # PowerShell modules to be installed
 $modules = (
+    'Microsoft.Graph',`
     'Microsoft.Graph.Authentication',`
     'Microsoft.Graph.Security',`
     'Microsoft.Graph.Beta.Security',`
     'Microsoft.Graph.Groups',`
     'Microsoft.Graph.Users',`
     'ExchangeOnlineManagement',`
-    'PSWindowsUpdate')
+    'PSWindowsUpdate',`
+    'ORCA')
 
 # Install each PowerShell module 
 foreach ($module in $modules){
