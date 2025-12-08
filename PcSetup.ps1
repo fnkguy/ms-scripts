@@ -9,6 +9,9 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 # Taskbar - remove search icon
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -value 0
 
+# Taskbar - remove task view
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -value 0
+
 
 <# --- GIT --- removed since this needs to be created in order to get this script
 # Create git.repo folder in C:/
