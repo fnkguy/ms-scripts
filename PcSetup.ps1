@@ -1,6 +1,6 @@
 <# --- WINDOWS PERSONALIZATION --- #>
 # Uninstall Taskbar Widgets
-Winget unistall `
+Winget uninstall `
     "windows web experience pack"
 
 # Taskbar - align left
@@ -23,18 +23,18 @@ git clone https://github.com/fnkguy/ms-scripts.git
 <# --- SOFTWARE --- #>
 # Package IDs to be installed
 $Packages = (
-    'google.googledrive'` #Google Drive
-    'KeePassXCTeam.KeePassXC'` #KeePass XC
-    '9NZVDKPMR9RD'` #FireFox
-    'Notepad++.Notepad++'` # NotePad++
-    '9NBLGGH4Z1SP'` #ShareX
-    'Microsoft.WindowsApp'` #Windows App
-    'Microsoft.VisualStudioCode'` #Visual Studio Code
-    'Microsoft.PowerShell'` #PowerShell 7
-    'Microsoft.WSL'` #WSL
-    'google.chrome'` #Google Chrome
-    '9PDXGNCFSCZV' ) #Ubunto
+    'google.googledrive',` <#Google Drive#> 
+    'KeePassXCTeam.KeePassXC',` <#KeePass XC#> 
+    '9NZVDKPMR9RD',` <#FireFox#>
+    '9NBLGGH4Z1SP',` <#ShareX#> 
+    'Microsoft.WindowsApp',` <#Windows App#>
+    'Microsoft.VisualStudioCode',` <#Visual Studio Code#>
+    'Microsoft.PowerShell',` <#PowerShell 7#>
+    'Microsoft.WSL',` <#WSL#>
+    'google.chrome',` <#Google Chrome#>
+    '9PDXGNCFSCZV' <#Ubuntu#>)
     #'git.git'` #Git - removed since it needs to be installed in order to get this script
+    #'Notepad++.Notepad++',` <#NotePad++#> - removed as not allowed by MS
 
 
 # Install software
@@ -45,8 +45,8 @@ foreach ($Package in $Packages){
 
 <# --- POWERSHELL --- #>
 # Set PowerShell location to Git Repo
-New-Item -Path $ENV:USERPROFILE\Documents\PowerShell -Name profile.ps1
-Add-Content -Path $ENV:USERPROFILE\Documents\PowerShell\profile.ps1 -Value "Set-Location 'C:\git.repo\ms-scripts"
+New-Item -Path $ENV:USERPROFILE\"OneDrive - Microsoft"\Documents\PowerShell -Name profile.ps1
+Add-Content -Path $ENV:USERPROFILE\"OneDrive - Microsoft"\Documents\PowerShell\profile.ps1 -Value "Set-Location 'C:\git.repo\ms-scripts'"
 
 # PowerShell modules to be installed
 $modules = (
