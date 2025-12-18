@@ -61,7 +61,8 @@ $modules = (
     'Microsoft.Graph.Users',`
     'ExchangeOnlineManagement',`
     'PSWindowsUpdate',`
-    'ORCA')
+    'ORCA',`
+    'SecurityPermissionsChecker')
 
 # Install each PowerShell module 
 foreach ($module in $modules){
