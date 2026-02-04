@@ -16,7 +16,7 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 Set-ItemProperty -Path "HKCU:\Keyboard Layout\Preload" -Name "1" -value 00000816
 
 # Keyboard - Set Default to PT
-Set-ItemProperty -Path "HKCU:\Keyboard Layout\Preload" -Name "Default" -value 00000816
+#Set-ItemProperty -Path "HKCU:\Keyboard Layout\Preload" -Name "Default" -value 00000816
 
 
 <# --- GIT --- removed since this needs to be created in order to get this script
