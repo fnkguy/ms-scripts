@@ -59,12 +59,12 @@ Add-Content -Path $ENV:USERPROFILE\"OneDrive - Microsoft"\Documents\PowerShell\p
 
 # PowerShell modules to be installed
 $modules = (
-    'Microsoft.Graph',`
-    'Microsoft.Graph.Authentication',`
-    'Microsoft.Graph.Security',`
-    'Microsoft.Graph.Beta.Security',`
-    'Microsoft.Graph.Groups',`
-    'Microsoft.Graph.Users',`
+    'Microsoft.Graph -repository PSGallery',`
+    #'Microsoft.Graph.Authentication',`
+    #'Microsoft.Graph.Security',`
+    #'Microsoft.Graph.Beta.Security',`
+    #'Microsoft.Graph.Groups',`
+    #'Microsoft.Graph.Users',`
     'ExchangeOnlineManagement',`
     'PSWindowsUpdate',`
     'ORCA',`
