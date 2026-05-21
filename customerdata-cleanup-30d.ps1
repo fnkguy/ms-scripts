@@ -1,15 +1,33 @@
-# List of paths with customer data
-$paths = (
+# Retention period
+$cutoff = (Get-Date).AddDays(-30)
+
+# Paths containing customer data
+$paths = @(
     "$ENV:USERPROFILE\OneDrive - Microsoft\Documents\ShareX\Logs",`
     "$ENV:USERPROFILE\OneDrive - Microsoft\Documents\ShareX\Screenshots",`
     "$ENV:USERPROFILE\CaseBuddy.CaseData\Archived",`
     "$ENV:USERPROFILE\OneDrive - Microsoft\Pictures\Screenshots",`
-    "$ENV:ProgramData\Microsoft\Event Viewer\ExternalLogs")
+    "$ENV:ProgramData\Microsoft\Event Viewer\ExternalLogs"
+)
 
-# Store items older then 30 days from all $paths 
-$items = Get-ChildItem $paths -Recurse | Where-Object {($_.lastwritetime -lt (Get-Date).AddDays(-30))}
+foreach ($path in $paths) {
 
-# Delete all items in $items
-foreach ($item in $items) {
-    Remove-Item $item -Recurse -Verbose -Force
+    if (-not (Test-Path $path)) { continue }
+
+    Get-ChildItem -Path $path -File -Recurse -ErrorAction SilentlyContinue |
+    Where-Object { $_.LastWriteTime -lt $cutoff } |
+    Remove-Item -Force -ErrorAction SilentlyContinue
 }
+
+# Optional: remove empty directories afterwards
+foreach ($path in $paths) {
+
+    if (-not (Test-Path $path)) { continue }
+
+    Get-ChildItem -Path $path -Directory -Recurse -ErrorAction SilentlyContinue |
+    Where-Object { 
+        (Get-ChildItem $_.FullName -ErrorAction SilentlyContinue).Count -eq 0 
+    } |
+    Remove-Item -Force -ErrorAction SilentlyContinue
+}
+``

@@ -3,7 +3,7 @@
   <RegistrationInfo>
     <Date>2025-09-10T12:42:09.9563891</Date>
     <Author>REDMOND\fnepomuceno</Author>
-    <URI>\fnepomuceno\customerdata-cleanup-30d</URI>
+    <URI>\fnepomuceno\customerData-cleanup-30d</URI>
   </RegistrationInfo>
   <Principals>
     <Principal id="Author">
@@ -50,7 +50,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>"C:\Program Files\PowerShell\7\pwsh.exe"</Command>
-      <Arguments>"C:\git.repo\ms-scripts\customerdata-cleanup-30d.ps1"</Arguments>
+      <Arguments>"C:\git.repo\ms-scripts\customerData-cleanup-30d.ps1"</Arguments>
     </Exec>
   </Actions>
 </Task>
