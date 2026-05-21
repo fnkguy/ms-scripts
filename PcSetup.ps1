@@ -78,8 +78,8 @@ foreach ($module in $modules){
 
 
 <# TASK SCHEDULER #>
-# pii-cleaner
-Register-ScheduledTask -TaskPath "\fnepomuceno" -TaskName "pii-cleaner" -Xml (Get-Content "C:\git.repo\ms-scripts\pii-taskSecheduler-export.xml" | Out-String) -Force
+# customerdata-cleanup-30d
+Register-ScheduledTask -TaskPath "\fnepomuceno" -TaskName "customerdata-cleanup-30d" -Xml (Get-Content "C:\git.repo\ms-scripts\customerdata-cleanup-30d-taskSecheduler-export.xml" | Out-String) -Force
 
 # Windows Update
 
