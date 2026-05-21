@@ -78,8 +78,25 @@ foreach ($module in $modules){
 
 
 <# TASK SCHEDULER #>
-# customerdata-cleanup-30d
-Register-ScheduledTask -TaskPath "\fnepomuceno" -TaskName "customerData-cleanup-30d" -Xml (Get-Content "C:\git.repo\ms-scripts\customerData-cleanup-30d-taskSecheduler-export.xml" | Out-String) -Force
+# ── Step 3: Detect PowerShell engine ──────────────────────────
+$pwshPath = if (Test-Path "C:\Program Files\PowerShell\7\pwsh.exe") {
+    "C:\Program Files\PowerShell\7\pwsh.exe"
+} elseif (Get-Command pwsh -ErrorAction SilentlyContinue) {
+    (Get-Command pwsh).Source
+} else {
+    "powershell.exe"
+}
+
+# ── Step 4: Register Scheduled Task (monthly, 1st of each month) ──
+# Using schtasks.exe for native monthly trigger support
+$arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$ps1_fullpath`""
+
+schtasks.exe /Create `
+    /TN "$taskName" `
+    /TR "`"$pwshPath`" $arguments" `
+    /SC MONTHLY /D 1 /ST 09:00 `
+    /RL LIMITED `
+    /F
 
 # Windows Update
 
