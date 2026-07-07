@@ -1,4 +1,4 @@
-#ANTI MALWARE POLICIES & RULES
+#SAFE ATTACHMENTS POLICIES & RULES
 # select account
 $AdminAccount = Read-Host "Admin account"
 # Connect to Exchange Online PowerShell
@@ -6,9 +6,9 @@ Connect-ExchangeOnline -UserPrincipalName $AdminAccount
 # Start transcript to log the output
 Start-Transcript -Path "C:\temp\SafeAttachmentsPolicies.txt"
 # Get all outbound spam filter policies
-$SafeAttachmentsPolicies = Get-SafeAttachmentsPolicy
+$SafeAttachmentsPolicies = Get-SafeAttachmentPolicy
 # Get all outbound spam filter rules
-$SafeAttachmentsRules = Get-SafeAttachmentsRule
+$SafeAttachmentsRules = Get-SafeAttachmentRule
 # Display details of each policy
 foreach ($policy in $SafeAttachmentsPolicies) {
 Write-Output "----------POLICIY $($policy.Name)-------------------"
