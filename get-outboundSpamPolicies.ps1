@@ -1,6 +1,6 @@
 #OUTBOUND POLICIES & RULES
 # select account
-$AdminAccount = Read-Host "Admin account"
+$AdminAccount = Read-Host "Admin account:"
 # Connect to Exchange Online PowerShell
 Connect-ExchangeOnline -UserPrincipalName $AdminAccount
 # Start transcript to log the output
