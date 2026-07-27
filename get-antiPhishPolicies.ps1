@@ -1,13 +1,13 @@
-#OUTBOUND POLICIES & RULES
+#ANTI PHISH POLICIES & RULES
 # select account
 $AdminAccount = Read-Host "Admin account"
 # Connect to Exchange Online PowerShell
 Connect-ExchangeOnline -UserPrincipalName $AdminAccount
 # Start transcript to log the output
 Start-Transcript -Path "C:\temp\AntiPhishPolicies.txt"
-# Get all outbound spam filter policies
+# Get all anti phish filter policies
 $antiPhishPolicies = Get-AntiPhishPolicy
-# Get all outbound spam filter rules
+# Get all anti phish filter rules
 $antiPhishRules = Get-AntiPhishRule
 # Display details of each policy
 foreach ($policy in $antiPhishPolicies) {
