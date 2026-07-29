@@ -3,6 +3,9 @@
 Winget uninstall `
     "windows web experience pack"
 
+# Keyboard language Hotkey - disable Ctrl+Shift to switch language input
+Set-ItemProperty -Path "HKCU:\Keyboard Layout\Toggle" -Name "Language Hotkey" -Value 0
+
 # Taskbar - align left
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAl" -Value 0
 
